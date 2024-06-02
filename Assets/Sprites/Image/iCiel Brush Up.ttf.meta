@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8caba19d32327b14dbbc40fd3f1ac9ea
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - iCiel Brush Up
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8716305fe179f9c4183830e7889a788e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
