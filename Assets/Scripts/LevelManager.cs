@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,18 +11,20 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject[] mapLevel;
     public int levelIndex;
     private int levelUI;
-    private int maxLevel = 7;
+    private int maxLevel;
     public Transform currentLevel;
     public CanvasGroup blackScreen;
 
     [SerializeField] private GameObject player;
 
-    private int[] maxNumMove = { 9, 12, 13, 25, 25, 26, 20, 29};
+    // private int[] maxNumMove = { 9, 12, 13, 25, 25, 26, 20, 29, 12, 10, 23, 27, 27, 18, 23};
+    private int[] maxNumMove = { 10, 9, 12, 12, 13, 20, 25, 18, 26, 27, 27, 23, 25, 23, 29};
     public int currentLevelMove;
 
     private void Awake()
     {
         instance = this;
+        maxLevel = maxNumMove.Count() - 1;
     }
 
     private void Start()
@@ -56,6 +59,7 @@ public class LevelManager : MonoBehaviour
         player.transform.position = currentLevel.Find("StartPos").position;
         player.GetComponent<PlayerCtrller>().AlignPlayerToCell();
         player.GetComponent<PlayerCtrller>().canMove = true;
+        // Debug.Log("Level " + (levelIndex + 1) + " - " + currentLevel.Find("Grid").GetComponent<TilemapGrid>().CountTile());
     }
 
     public void NextLevel()

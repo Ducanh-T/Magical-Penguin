@@ -13,7 +13,7 @@ public class TilemapGrid : MonoBehaviour
 	public Tilemap floor;
 	private Tilemap wall;
 
-	[SerializeField] private Tile colorTile, wallHot1, wallHot2, wallCold1, wallCold2;
+	[SerializeField] private Tile colorTile, wallHot1, wallHot2, wallCold1, wallCold2, grassTile;
 
 	private void Awake()
 	{
@@ -118,5 +118,15 @@ public class TilemapGrid : MonoBehaviour
 				else wall.SetTile(cellPos, wallCold1);
 			}
 		}
+	}
+
+	public int  CountTile()
+	{
+		int count = 0;
+		foreach (var tile in floor.GetTilesBlock(floor.cellBounds))
+		{
+			if(tile == grassTile) count++;
+		}
+		return count;
 	}
 }

@@ -8,13 +8,13 @@ using UnityEngine.UI;
 public class TutorialPanel : MonoBehaviour
 {
     [SerializeField] private float displayTime = 1;
-    private Transform board;
+    [SerializeField] private Transform board;
     private CanvasGroup canvasGroup;
     private float endAlpha;
     private Image image;
-    private Animator boardAnimator;
-    private readonly int tutorialState = Animator.StringToHash("Tutorial");
-    private readonly int stopState = Animator.StringToHash("Stop");
+    // private Animator boardAnimator;
+    // private readonly int tutorialState = Animator.StringToHash("Tutorial");
+    // private readonly int stopState = Animator.StringToHash("Stop");
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class TutorialPanel : MonoBehaviour
         canvasGroup = GetComponent<CanvasGroup>();
         board = transform.Find("Board");
         endAlpha = image.color.a;
-        boardAnimator = transform.GetComponentInChildren<Animator>();
+        // boardAnimator = transform.GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -30,7 +30,7 @@ public class TutorialPanel : MonoBehaviour
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
         board.localScale = new Vector3(0, 0, 1);
         canvasGroup.alpha = 0;
-        boardAnimator.CrossFade(stopState, 0);
+        // boardAnimator.CrossFade(stopState, 0);
     }
 
 
@@ -44,7 +44,7 @@ public class TutorialPanel : MonoBehaviour
                 Time.timeScale = 1;
                 canvasGroup.alpha = 0;
                 canvasGroup.blocksRaycasts = false;
-                boardAnimator.CrossFade(stopState, 0);
+                // boardAnimator.CrossFade(stopState, 0);
             });
     }
 
@@ -56,7 +56,7 @@ public class TutorialPanel : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
         StartCoroutine(Display(() =>
         {
-            boardAnimator.CrossFade(tutorialState, 0);
+            // boardAnimator.CrossFade(tutorialState, 0);
         }));
     }
 
