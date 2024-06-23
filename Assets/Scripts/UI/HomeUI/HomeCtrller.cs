@@ -9,7 +9,6 @@ public class HomeCtrller : MonoBehaviour
 {
     public static HomeCtrller instance;
     private Button playButton;
-    private Transform logo;
     private Transform playBtn;
     private Transform guideBtn;
 
@@ -17,7 +16,6 @@ public class HomeCtrller : MonoBehaviour
     {
         instance = this;
         playButton = transform.Find("PlayBtn").GetComponent<Button>();
-        logo = transform.Find("Logo");
         playBtn = transform.Find("PlayBtn");
         guideBtn = transform.Find("GuideBtn");
     }
@@ -44,9 +42,6 @@ public class HomeCtrller : MonoBehaviour
             yield return new WaitForSeconds(1f);
             Vector2 startPos2 = guideBtn.position;
             guideBtn.DOPunchPosition(new Vector2(guideBtn.position.x - 10, startPos2.y), 0.5f);
-
-            // yield return new WaitForSeconds(3f);
-            // logo.DOPunchScale(new Vector2(0.5f, 0.5f), 0.5f);
         }
     }
 }

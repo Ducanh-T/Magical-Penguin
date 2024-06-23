@@ -13,7 +13,7 @@ public class TilemapGrid : MonoBehaviour
 	public Tilemap floor;
 	private Tilemap wall;
 
-	[SerializeField] private Tile colorTile, wallHot1, wallHot2, wallCold1, wallCold2, grassTile;
+	[SerializeField] private Tile colorTile, wallHot2, wallCold1, wallCold2, grassTile;
 
 	private void Awake()
 	{
@@ -29,32 +29,14 @@ public class TilemapGrid : MonoBehaviour
 		InitGrid();
 	}
 
-	private void Start()
-	{
-	}
-
-
-
 	public void InitGrid()
 	{
 		floor.CompressBounds();
 	}
 
-	// private void ResizeCamToFitTilemap()
-	// {
-	// 	const int standardGridSize = 4;
-	// 	CameraController.Cam.orthographicSize =
-	// 		CameraController.Instance.initialCamSize / standardGridSize * Grid.GetLength(0);
-	// }
-
 	public Vector3Int WorldToCell(Vector2 worldPosition)
 	{
 		return grid.WorldToCell(worldPosition);
-	}
-
-	private Vector2 CellToWorld(Vector3Int tilePosition)
-	{
-		return grid.CellToWorld(tilePosition);
 	}
 
 	public Vector2 GetCellCenterWorld(Vector3Int cellPos)
@@ -66,11 +48,6 @@ public class TilemapGrid : MonoBehaviour
 	{
 		Vector3Int cellPos = WorldToCell(worldPosition);
 		return GetCellCenterWorld(cellPos);
-	}
-
-	public bool HasWall(Vector2 pos)
-	{
-		return wall.HasTile(WorldToCell(pos));
 	}
 
 	public bool HasWall(Vector3Int cell)
@@ -85,11 +62,6 @@ public class TilemapGrid : MonoBehaviour
 			floor.SetTile(cell, colorTile);
 		}
 	}
-
-	// public bool IsInsideBound(Vector3Int cell)
-	// {
-	// 	return grid.HasTile(cell);
-	// }
 
 	public bool isWin()
 	{
@@ -118,15 +90,5 @@ public class TilemapGrid : MonoBehaviour
 				else wall.SetTile(cellPos, wallCold1);
 			}
 		}
-	}
-
-	public int  CountTile()
-	{
-		int count = 0;
-		foreach (var tile in floor.GetTilesBlock(floor.cellBounds))
-		{
-			if(tile == grassTile) count++;
-		}
-		return count;
 	}
 }

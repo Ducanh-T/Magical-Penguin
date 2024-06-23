@@ -82,7 +82,7 @@ public class PlayerCtrller : MonoBehaviour
         if (count > 90) Debug.LogError("Count: " + count);
 
         if(startCell == currentCell) return;
-        // Debug.Log(startCell + ", " + currentCell);
+        
         LevelManager.instance.ReduceMoveCount();
 
         Vector2 moveDestination = tilemapGrid.GetCellCenterWorld(currentCell);

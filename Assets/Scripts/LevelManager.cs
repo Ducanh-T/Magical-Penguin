@@ -17,7 +17,6 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    // private int[] maxNumMove = { 9, 12, 13, 25, 25, 26, 20, 29, 12, 10, 23, 27, 27, 18, 23};
     private int[] maxNumMove = { 10, 9, 12, 12, 13, 20, 25, 18, 26, 27, 27, 23, 25, 23, 29};
     public int currentLevelMove;
 
@@ -59,7 +58,6 @@ public class LevelManager : MonoBehaviour
         player.transform.position = currentLevel.Find("StartPos").position;
         player.GetComponent<PlayerCtrller>().AlignPlayerToCell();
         player.GetComponent<PlayerCtrller>().canMove = true;
-        // Debug.Log("Level " + (levelIndex + 1) + " - " + currentLevel.Find("Grid").GetComponent<TilemapGrid>().CountTile());
     }
 
     public void NextLevel()
@@ -81,7 +79,6 @@ public class LevelManager : MonoBehaviour
 
     private void SetMaxMove(int levelIndex)
     {
-        // reset bien dem so lan di chuyen, set lai so lan di chuyen max
         currentLevelMove = maxNumMove[levelIndex];
         UIManager.instance.UpdateTxtMaxMove(currentLevelMove);
     }
