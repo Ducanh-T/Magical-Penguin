@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    private int[] maxNumMove = { 10, 9, 12, 12, 13, 20, 25, 18, 26, 27, 27, 23, 25, 23, 29};
+    private int[] maxNumMove = {10, 9, 12, 12, 13, 20, 25, 18, 26, 27, 27, 23, 25, 23, 29};
     public int currentLevelMove;
 
     private void Awake()
